@@ -40,6 +40,9 @@ public class World : MonoBehaviour {
 	/// </summary>
 	void Update () {
 		windSpeed = Input.GetAxis ("Horizontal");
+		if (Input.GetKey (KeyCode.R))
+			UnityEngine.SceneManagement.SceneManager.LoadScene (
+				UnityEngine.SceneManagement.SceneManager.GetActiveScene ().buildIndex);
 	}
 
 	/// <summary>

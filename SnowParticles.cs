@@ -8,7 +8,8 @@ using AssemblyCSharp;
 public class SnowParticles : MonoBehaviour {
 
 	public ParticleSystem snow;
-	
+	public float speedScale;
+	public float timeScale;
 	// Update is called once per frame
 	void Update () {
 		ParticleSystem.Particle[] p = new ParticleSystem.Particle[snow.particleCount+1];
@@ -16,7 +17,7 @@ public class SnowParticles : MonoBehaviour {
 
 		int i = 0;
 		while (i < l) {
-			p[i].velocity = new Vector3(-1*Util.percentDiff(-1*p[i].velocity.x,World.data.WindSpeed(),0.05f),
+			p[i].velocity = new Vector3(-1*Util.percentDiff(-1*p[i].velocity.x,speedScale*World.data.WindSpeed(),timeScale),
 				p[i].velocity.y, p[i].velocity.z);
 			i++;
 		}
