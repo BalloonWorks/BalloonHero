@@ -1,0 +1,94 @@
+fileFormatVersion: 2
+guid: 9d7b383a81c3e884bbfc690b24eb1231
+timeCreated: 1456464453
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: kiteWholeBody_0
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: kiteWholeBody_0
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 0
+        width: 240
+        height: 298
+      alignment: 9
+      pivot: {x: 0.31218427, y: 0.84934074}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 82.075775, y: -29.103546}
+        - {x: 85.075775, y: -66.103546}
+        - {x: 109.075775, y: -105.103546}
+        - {x: 165.07578, y: -133.10355}
+        - {x: 165.07578, y: -38.103546}
+        - {x: 129.07578, y: 17.896454}
+        - {x: 5.075775, y: 44.896454}
+        - {x: -17.924225, y: 44.896454}
+        - {x: -74.924225, y: -16.103546}
+        - {x: -74.924225, y: -142.10355}
+        - {x: -62.924225, y: -160.10355}
+        - {x: 15.075775, y: -178.10355}
+        - {x: 19.075775, y: -157.10355}
+        - {x: -8.924225, y: -122.103546}
+        - {x: -19.924225, y: -112.103546}
+        - {x: -22.924225, y: -113.103546}
+        - {x: -23.924225, y: -100.103546}
+        - {x: 39.075775, y: -176.10355}
+        - {x: 46.075775, y: -179.10355}
+        - {x: 35.075775, y: -206.10355}
+        - {x: 77.075775, y: -253.10355}
+        - {x: 128.07578, y: -253.10355}
+        - {x: 131.07578, y: -217.10355}
+        - {x: 90.075775, y: -130.10355}
+        - {x: 75.075775, y: -33.103546}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

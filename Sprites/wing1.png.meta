@@ -1,0 +1,80 @@
+fileFormatVersion: 2
+guid: 0b7d6106cab00e442a55c81785430982
+timeCreated: 1455665128
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: wing1_0
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: wing1_0
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 195
+        width: 112
+        height: 49
+      alignment: 9
+      pivot: {x: 0.16461495, y: 0.6095136}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.436874, y: 19.133835}
+        - {x: -18.436874, y: 14.133835}
+        - {x: -18.436874, y: -15.866165}
+        - {x: -10.436874, y: -22.866165}
+        - {x: -3.4368744, y: -26.866165}
+        - {x: 1.5631256, y: -28.866165}
+        - {x: 4.5631256, y: -29.866165}
+        - {x: 60.563126, y: -29.866165}
+        - {x: 93.563126, y: -13.866165}
+        - {x: 93.563126, y: -0.86616516}
+        - {x: 23.563126, y: 19.133835}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
