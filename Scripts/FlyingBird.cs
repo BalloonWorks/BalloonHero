@@ -8,6 +8,7 @@ public class FlyingBird : MonoBehaviour {
 
     public float amplitude;
     public Vector3 tempPosition;
+	public float yOffset;
 	// Use this for initialization
 	void Start () {
         tempPosition = transform.position;
@@ -15,15 +16,15 @@ public class FlyingBird : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        if (tempPosition.x < 12)
+		if (Mathf.Abs(tempPosition.x) < 13)
         {
             tempPosition.x += horizentalSpeed;
         }
         else
         {
-            tempPosition.x = -12;
+			tempPosition.x = -12*Mathf.Sign(horizentalSpeed);
         }
-        tempPosition.y = Mathf.Sin(Time.realtimeSinceStartup * verticalSpeed) * amplitude;
+        tempPosition.y = Mathf.Sin(Time.realtimeSinceStartup * verticalSpeed) * amplitude + yOffset;
         transform.position = tempPosition;
 	}
 

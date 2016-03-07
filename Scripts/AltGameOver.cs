@@ -12,6 +12,7 @@ public class AltGameOver : MonoBehaviour {
 		{
 			levelCompletedPanel.SetActive (true);
 			Destroy(col.gameObject);
+			World.data.SaveLevelInfo (World.data.GetLevelNum ());
 		}
 	}
 }

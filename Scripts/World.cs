@@ -14,8 +14,8 @@ public class World : MonoBehaviour {
 	/// data about the world.
 	/// </summary>
 	public static World data;//Points to the instance of the world
-	public const int NUM_OF_LEVELS = 4;
-	public readonly int[] STARS_IN_LEVEL = {0,0,3,0};
+	public const int NUM_OF_LEVELS = 5;
+	public readonly int[] STARS_IN_LEVEL = {0,0,3,0,3};
 	public int highestLevel;
 	public AudioSource music;
 	/// <summary>
