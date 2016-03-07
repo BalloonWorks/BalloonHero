@@ -122,5 +122,9 @@ public class World : MonoBehaviour {
 				File.Delete(Application.persistentDataPath + "/" + i.ToString () + ".dat");
 		}
 	}
+
+	public int GetLevelNum(){
+		return UnityEngine.SceneManagement.SceneManager.GetActiveScene ().buildIndex - 2;
+	}
 		
 }
