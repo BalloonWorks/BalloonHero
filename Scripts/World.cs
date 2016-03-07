@@ -14,14 +14,15 @@ public class World : MonoBehaviour {
 	/// data about the world.
 	/// </summary>
 	public static World data;//Points to the instance of the world
-	public const int NUM_OF_LEVELS = 3;
-	public readonly int[] STARS_IN_LEVEL = {0,0,3};
+	public const int NUM_OF_LEVELS = 4;
+	public readonly int[] STARS_IN_LEVEL = {0,0,3,0};
 	public int highestLevel;
 	public AudioSource music;
 	/// <summary>
 	/// The current global wind speed.
 	/// </summary>
 	private float windSpeed;
+	private bool addingBalloon;
 
 	/// <summary>
 	/// Destroy this instance if one exists, otherwise
@@ -35,6 +36,7 @@ public class World : MonoBehaviour {
 			music.Play ();
 			windSpeed = 0;
 			highestLevel = 0;
+			addingBalloon = false;
 			while (File.Exists (Application.persistentDataPath + "/" + (highestLevel + 1).ToString () + ".dat"))
 				highestLevel++;
 			DontDestroyOnLoad (gameObject);
@@ -56,8 +58,31 @@ public class World : MonoBehaviour {
 				UnityEngine.SceneManagement.SceneManager.GetActiveScene ().buildIndex);
 		if (Input.GetKey (KeyCode.D))
 			DeleteAllData ();
+		if (Input.GetKey (KeyCode.A)) {
+			SetAddingBalloon ();//Delete this when UI Added.
+		}
+		if (Input.GetMouseButtonDown(0)) {
+			if (addingBalloon){
+				Vector2 touchPostion = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+				RaycastHit2D hit2D = Physics2D.Raycast(touchPostion, Vector2.zero);
+				if (hit2D.collider != null && hit2D.collider.gameObject.GetComponent<AddBalloon> () != null) {
+					AddBalloon target = hit2D.collider.gameObject.GetComponent<AddBalloon> ();
+					target.AddNewBalloon ();
+				}
+				AddBalloon[] balloonable = UnityEngine.GameObject.FindObjectsOfType<AddBalloon> ();
+				foreach (AddBalloon a in balloonable)
+					a.highlighted = false;
+				addingBalloon = false;
+			}
+		}
 	}
 
+	public void SetAddingBalloon(){
+		AddBalloon[]  balloonable = UnityEngine.GameObject.FindObjectsOfType<AddBalloon> ();
+		foreach (AddBalloon a in balloonable)
+			a.highlighted = true;
+		addingBalloon = true;
+	}
 	/// <summary>
 	/// Get the global windspeed.
 	/// </summary>
