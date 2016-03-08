@@ -3,11 +3,11 @@ using System.Collections;
 
 public class LightManager : MonoBehaviour {
 
-    private Light light;
+    private Light lght;
 
     void Start()
     {
-        light = GetComponent<Light>();
+        lght = GetComponent<Light>();
     }
 
 
@@ -15,7 +15,7 @@ public class LightManager : MonoBehaviour {
     {
         
         bool secEven = Mathf.FloorToInt(Time.time) % 2 == 0;
-        light.enabled = secEven;
+        lght.enabled = secEven;
     }
 
 }

@@ -13,15 +13,20 @@ public class World : MonoBehaviour {
 	/// Points to the instance of the world, used to get
 	/// data about the world.
 	/// </summary>
-	public static World data;//Points to the instance of the world
-	public const int NUM_OF_LEVELS = 3;
-	public readonly int[] STARS_IN_LEVEL = {0,0,3};
+	public static World data;
+
+	public const int NUM_OF_LEVELS = 7;
+
+	public readonly int[] STARS_IN_LEVEL = {0,0,0,1,0,3,3};
+
 	public int highestLevel;
-	public AudioSource music;
+
 	/// <summary>
 	/// The current global wind speed.
 	/// </summary>
 	private float windSpeed;
+
+	private bool addingBalloon;
 
 	/// <summary>
 	/// Destroy this instance if one exists, otherwise
@@ -32,9 +37,9 @@ public class World : MonoBehaviour {
 		if (data == null) {
 			//Set the static instance to this object
 			data = this;
-			music.Play ();
 			windSpeed = 0;
-			highestLevel = 0;
+			highestLevel = -1;
+			addingBalloon = false;
 			while (File.Exists (Application.persistentDataPath + "/" + (highestLevel + 1).ToString () + ".dat"))
 				highestLevel++;
 			DontDestroyOnLoad (gameObject);
@@ -54,10 +59,29 @@ public class World : MonoBehaviour {
 		if (Input.GetKey (KeyCode.R))
 			UnityEngine.SceneManagement.SceneManager.LoadScene (
 				UnityEngine.SceneManagement.SceneManager.GetActiveScene ().buildIndex);
-		if (Input.GetKey (KeyCode.D))
-			DeleteAllData ();
+
+		if (Input.GetMouseButtonDown(0)) {
+			if (addingBalloon){
+				Vector2 touchPostion = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+				RaycastHit2D hit2D = Physics2D.Raycast(touchPostion, Vector2.zero);
+				if (hit2D.collider != null && hit2D.collider.gameObject.GetComponent<AddBalloon> () != null) {
+					AddBalloon target = hit2D.collider.gameObject.GetComponent<AddBalloon> ();
+					target.AddNewBalloon ();
+				}
+				AddBalloon[] balloonable = UnityEngine.GameObject.FindObjectsOfType<AddBalloon> ();
+				foreach (AddBalloon a in balloonable)
+					a.highlighted = false;
+				addingBalloon = false;
+			}
+		}
 	}
 
+	public void SetAddingBalloon(){
+		AddBalloon[]  balloonable = UnityEngine.GameObject.FindObjectsOfType<AddBalloon> ();
+		foreach (AddBalloon a in balloonable)
+			a.highlighted = true;
+		addingBalloon = true;
+	}
 	/// <summary>
 	/// Get the global windspeed.
 	/// </summary>
@@ -115,7 +139,7 @@ public class World : MonoBehaviour {
 	}
 
 	public void DeleteAllData(){
-		highestLevel = 0;
+		highestLevel = -1;
 		//Reset each level's data.
 		for (int i = 0; i < NUM_OF_LEVELS; i++) {
 			if (File.Exists (Application.persistentDataPath + "/" + i.ToString () + ".dat"))
@@ -124,7 +148,7 @@ public class World : MonoBehaviour {
 	}
 
 	public int GetLevelNum(){
-		return UnityEngine.SceneManagement.SceneManager.GetActiveScene ().buildIndex - 2;
+		return UnityEngine.SceneManagement.SceneManager.GetActiveScene ().buildIndex - 4;
 	}
 		
 }

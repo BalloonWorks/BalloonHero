@@ -7,7 +7,7 @@ public class House : MonoBehaviour {
 	public GameObject animObj;
 	Text gameOverText;
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "balloonGift")
         {
@@ -15,12 +15,14 @@ public class House : MonoBehaviour {
             animObj.SetActive(true);
             gameOverText = GameObject.Find("GameOverText").GetComponent<Text>();
 			gameOverText.text = "Win!";
-			World.data.SaveLevelInfo (UnityEngine.SceneManagement.SceneManager.GetActiveScene ().buildIndex - 2);
+			World.data.SaveLevelInfo (World.data.GetLevelNum());
             Animator anim = animObj.GetComponent<Animator>();
 			anim.SetTrigger("GameOver");
 			Debug.Log("Game Over");
             Destroy(col.gameObject);
             globalVariables.starsCount = 0;
+			globalVariables.gameEnded = true;
+			World.data.DeleteAllData ();
         }
     }
 }
