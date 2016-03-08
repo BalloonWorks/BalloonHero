@@ -20,6 +20,7 @@ public class gameOver : MonoBehaviour {
 			anim.SetTrigger("GameOver");
 			Debug.Log("Game Over");
             globalVariables.starsCount = 0;
+			globalVariables.gameEnded = true;
 		}
 	}
 }

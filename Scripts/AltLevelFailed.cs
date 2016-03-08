@@ -11,6 +11,7 @@ public class AltLevelFailed : MonoBehaviour
 		if (col.gameObject.tag == "balloonGift") {
 			levelFailedPanel.SetActive (true);
 			Destroy (col.gameObject);
+			globalVariables.gameEnded = true;
 		}
 	}
 }

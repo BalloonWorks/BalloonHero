@@ -16,13 +16,13 @@ public class FlyingBird : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (Mathf.Abs(tempPosition.x) < 13)
+		if (Mathf.Abs(tempPosition.x) < 15)
         {
             tempPosition.x += horizentalSpeed;
         }
         else
         {
-			tempPosition.x = -12*Mathf.Sign(horizentalSpeed);
+			tempPosition.x = -14*Mathf.Sign(horizentalSpeed);
         }
         tempPosition.y = Mathf.Sin(Time.realtimeSinceStartup * verticalSpeed) * amplitude + yOffset;
         transform.position = tempPosition;

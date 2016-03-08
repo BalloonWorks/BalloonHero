@@ -4,8 +4,9 @@ using UnityEngine.UI;
 
 public class globalVariables : MonoBehaviour {
 
-    public static int starsCount=0;
+    public static int starsCount;
     public static Text countText;
+	public static bool gameEnded = false;
 
 
 	void Start()
