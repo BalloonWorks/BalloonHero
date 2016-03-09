@@ -21,6 +21,7 @@ public class World : MonoBehaviour {
 
 	public int highestLevel;
 
+	public GameObject dove;
 	/// <summary>
 	/// The current global wind speed.
 	/// </summary>
@@ -72,6 +73,7 @@ public class World : MonoBehaviour {
 				foreach (AddBalloon a in balloonable)
 					a.highlighted = false;
 				addingBalloon = false;
+				dove.SetActive (false);
 			}
 		}
 	}
@@ -81,6 +83,7 @@ public class World : MonoBehaviour {
 		foreach (AddBalloon a in balloonable)
 			a.highlighted = true;
 		addingBalloon = true;
+		dove.SetActive (true);
 	}
 	/// <summary>
 	/// Get the global windspeed.
