@@ -10,6 +10,11 @@ public class musicManager : MonoBehaviour {
 
 	}
 
+	/* Just to check where the stored files go. */
+	void Start(){
+		Debug.Log (Application.persistentDataPath);
+	}
+
 	void Awake(){
 		if (instance != null && instance != this) {
 			Destroy (this.gameObject);

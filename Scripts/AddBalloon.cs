@@ -5,42 +5,21 @@ public class AddBalloon : MonoBehaviour {
 	public Rigidbody2D self;
 	public Transform balloon;
 	public Transform spawnPoint;
+	public Transform connectPoint;
+	public GameObject highlight;
+	public float upForce = -3;
 	public float scale;
-
-	public Color normalColor;
-	public Color highlightColor;
-	public SpriteRenderer image;
-	public float highlightTime;
-	public bool highlighted;
-	private float time;
-	private bool increasing;
-	void Start()
-	{
-		time = 0;
-		increasing = true;
-	}
-
-	// Update is called once per frame
-	void Update () {
-		if (highlighted) {
-			time = (increasing) ? Mathf.Min (time + Time.deltaTime, highlightTime) : Mathf.Max (time - Time.deltaTime, 0);
-			if (time == highlightTime)
-				increasing = false;
-			else if (time == 0)
-				increasing = true;
-			image.material.color = Color.Lerp (normalColor, highlightColor, time / highlightTime);
-		} else
-			image.material.color = normalColor;
-	}
 
 	public void AddNewBalloon(){
 		Transform newBalloon = Instantiate (balloon);
+		newBalloon.GetComponent<SpriteRenderer> ().sortingLayerName = "Forground";
+		newBalloon.GetComponent<Rigidbody2D> ().gravityScale = upForce;
 		newBalloon.localScale = new Vector3 (scale, scale, 1);
 		newBalloon.position = spawnPoint.position;
 		SpringJoint2D newBalloonSpring = newBalloon.GetComponent<SpringJoint2D> ();
 		newBalloonSpring.connectedBody = self;
-		newBalloonSpring.anchor = Vector2.zero;
-		newBalloonSpring.connectedAnchor = Vector2.zero;
+		newBalloonSpring.anchor = new Vector2(-0.8f,0);
+		newBalloonSpring.connectedAnchor = connectPoint.localPosition;
 		newBalloonSpring.autoConfigureConnectedAnchor = true;
 		newBalloonSpring.autoConfigureDistance = true;
 	}

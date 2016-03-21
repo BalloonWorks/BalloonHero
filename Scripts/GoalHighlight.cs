@@ -4,26 +4,21 @@ using System.Collections;
 public class GoalHighlight : MonoBehaviour {
     
     private bool colourChanged = false;
-    private double interval = 0.25;
-    private double nextTime = 0;
+    //private double interval = 0.25;
+    //private double nextTime = 0;
 
-    void Start()
-    {
+	void Start(){
+		InvokeRepeating ("changeColor", 0.0f, 0.4f);
+	}
 
-    }
-
+	/*
     // Update is called once per frame
-    void Update()
-    {
-        if (Time.time >= nextTime)
-        {
-
+    void Update(){
+        if (Time.time >= nextTime){
             changeColor();
-
             nextTime += interval;
-
         }
-    }
+    }*/
 
     void changeColor()
     {

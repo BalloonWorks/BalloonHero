@@ -16,7 +16,7 @@ public class Kite : MonoBehaviour {
     {
         if (Mathf.Abs(self.velocity.x) < Mathf.Abs(World.data.WindSpeed()) || self.velocity.x * World.data.WindSpeed() < 0)
             self.AddForce(new Vector2(World.data.WindSpeed() * lightness, 0));
-            transform.Rotate(0, 10*Time.deltaTime, 0);
+            transform.Rotate(0, 0, 10*Time.deltaTime);
 
     }
 

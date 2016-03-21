@@ -6,6 +6,7 @@ namespace AssemblyCSharp
 	public class LevelInfo
 	{
 		public bool[] starsCollected;
+		public int totalStarsCollected;
 	}
 }
 

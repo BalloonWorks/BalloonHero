@@ -17,5 +17,9 @@ public class restart : MonoBehaviour {
 			musicManager.GetComponent<AudioSource> ().clip = bgm;
 			musicManager.GetComponent<AudioSource> ().Play ();
 		} 
+		//else if (Input.GetKeyDown (KeyCode.R)) { //restart the current level
+		//	UnityEngine.SceneManagement.SceneManager.LoadScene (
+		//		UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+		//}
 	}
 }
